@@ -1,4 +1,4 @@
-class: center, middle
+class: title
 
 # Docker: The Good, The Bad, The Ugly
 
@@ -8,7 +8,7 @@ class: center, middle
 
 ---
 
-# Overview
+## Overview
 
 1. Containers vs VMs
 2. Images
@@ -19,7 +19,7 @@ class: center, middle
 
 ---
 
-# Containers
+## Containers
 * What's a container?
   - 'A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.' -Docker Docs
 * How is it different from a VM?
@@ -27,26 +27,26 @@ class: center, middle
       
 ---
 
-# Images
+## Images
       
 ---
       
-# Volumes
+## Volumes
       
 ---
       
-# Docker-Compose
+## Docker-Compose
       
 ---
       
-# Example Time
+## Example Time
       
 ---
       
-# Security Implications
+## Security Implications
       
 ---
       
-# Conclusion
+## Conclusion
       
 ---
