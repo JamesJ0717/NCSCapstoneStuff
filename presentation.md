@@ -17,11 +17,10 @@ class: title
 ## Overview
 
 1. Containers vs VMs
-2. Images
-3. Volumes
-4. Docker-Compose
-5. Examples
-6. Security Implications
+2. Docker-Compose
+3. Examples
+4. Security Implications
+5. Conclusion
 
 ---
 
