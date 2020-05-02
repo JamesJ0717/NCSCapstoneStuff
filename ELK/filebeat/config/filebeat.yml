@@ -1,11 +1,19 @@
 output.elasticsearch:
   hosts: ["http://elasticsearch:9200"]
+  username: "elastic"
+  password: "changeme"
 setup.kibana:
   host: "http://kibana:5601"
   username: "elastic"
   password: "changeme"
 
 filebeat.modules:
-  - module: nginx
-  - module: mysql
   - module: system
+  - module: logstash
+    log:
+      enabled: true
+      var.paths: ["/usr/share/logstash/logs/logstash*"]
+      var.format: json
+  - module: suricata
+    eve:
+      enabled: true

@@ -1,23 +1,47 @@
-		@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-		@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-		@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Yanone + Kaffeesatz);
+@import url(
+  https://fonts.googleapis.com/css?family=Droid + Serif:400,
+  700,
+  400italic
+);
+@import url(
+  https://fonts.googleapis.com/css?family=Ubuntu + Mono:400,
+  700,
+  400italic
+);
 
-		body {
-			font-family: 'Droid Serif';
-		}
+body {
+  font-family: "Droid Serif";
+}
 
-		h1,
-		h2,
-		h3 {
-			font-family: 'Yanone Kaffeesatz';
-			font-weight: normal;
-		}
+h1,
+h2,
+h3 {
+  font-family: "Yanone Kaffeesatz";
+  font-weight: normal;
+}
 
-		.remark-code,
-		.remark-inline-code {
-			font-family: 'Ubuntu Mono';
-		}
-    .image-tiny img{max-height:5em;min-height:5em}.remark-slide-content
-    .image-small img{max-height:10em;min-height:10em}.remark-slide-content
-    .left-column  { width: 49%; float: left; }
-    .right-column { width: 49%; float: right; }
+.remark-code,
+.remark-inline-code {
+  font-family: "Ubuntu Mono";
+}
+.remark-slide-content .image-tiny img {
+  max-height: 5em;
+  min-height: 5em;
+}
+.remark-slide-content .image-small img {
+  max-height: 10em;
+  min-height: 10em;
+}
+.remark-slide-content .image-medium img {
+  max-height: 20em;
+  max-width: 20em;
+}
+.left-column {
+  width: 49%;
+  float: left;
+}
+.right-column {
+  width: 49%;
+  float: right;
+}

@@ -24,12 +24,15 @@ metricbeat.modules:
     period: 10s
     enabled: true
   - module: logstash
-
-processors:
-  - add_cloud_metadata: ~
+    metricsets: ["node", "node_stats"]
+    enabled: true
+    period: 10s
+    hosts: ["logstash:9600"]
 
 output.elasticsearch:
   hosts: ["elasticsearch:9200"]
+  username: "elastic"
+  password: "changeme"
 
 setup.kibana:
   host: "kibana:5601"

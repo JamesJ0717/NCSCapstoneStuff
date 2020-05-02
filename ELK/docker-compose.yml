@@ -9,7 +9,7 @@ services:
     volumes:
       - type: bind
         source: ./elasticsearch/config/elasticsearch.yml
-        target: /usr/share/elasticsearch/config/elasticsearch.yml
+        target: /usr/share/config/elasticsearch.yml
         read_only: true
       - type: volume
         source: elasticsearch
@@ -20,8 +20,6 @@ services:
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
       ELASTIC_PASSWORD: changeme
-      # Use single node discovery in order to disable production mode and avoid bootstrap checks
-      # see https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
       discovery.type: single-node
     networks:
       - elk
@@ -50,6 +48,7 @@ services:
       - elk
     depends_on:
       - elasticsearch
+      - kibana
 
   kibana:
     build:
@@ -77,10 +76,17 @@ services:
       - setup.kibana.host=kibana:5601
       - output.elasticsearch.hosts=["elasticsearch:9200"]
     volumes:
+      - type: bind
+        source: ./metricbeat/config/metricbeat.yml
+        target: /usr/share/metricbeat/metricbeat.yml
+        read_only: true
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    user: root
     networks:
       - elk
-    command: ./metricbeat -e
+    depends_on:
+      - kibana
+      - elasticsearch
 
   filebeat:
     build:
@@ -90,11 +96,21 @@ services:
     volumes:
       - type: bind
         source: ./filebeat/config/filebeat.yml
-        target: /usr/share/filebeat/config/filebeat.yml
+        target: /usr/share/filebeat/filebeat.yml
         read_only: true
     depends_on:
       - elasticsearch
       - kibana
+    networks:
+      - elk
+
+  suricata:
+    build:
+      context: suricata/
+    volumes:
+      - type: bind
+        source: ./suricata/
+        target: /var/log/suricata/
     networks:
       - elk
 
